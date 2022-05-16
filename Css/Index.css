@@ -21,6 +21,14 @@ body{
 }
 .btn:hover{
   background-color: darkslategray !important;
-  border-color: white;
+  border-color: darkslategray;
+}
+
+.contain-main{
+  background-color: #00000044;
+  color: #fff;
+  border-radius: 20px;
+  text-align: center;
+  margin: 5% 0 0 3%;
 }
 
