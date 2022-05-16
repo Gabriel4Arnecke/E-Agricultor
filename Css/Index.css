@@ -1,3 +1,26 @@
 body{
-    
+    background-color: darkslategray !important;
 }
+.page-footer{
+  background-color: #212529;
+  color: #ffffff;
+  position: fixed ;
+  bottom: 0;
+  width: 100%;
+  text-align: center  !important;
+}
+
+.navbar{
+  padding-left: 2%;
+}
+
+.btn{
+  padding-left: 2%;
+  color: darkslategray !important;
+  border-color: darkslategray;
+}
+.btn:hover{
+  background-color: darkslategray !important;
+  border-color: white;
+}
+
