@@ -14,3 +14,13 @@ body{
   padding-left: 2%;
 }
 
+.btn{
+  padding-left: 2%;
+  color: darkslategray !important;
+  border-color: darkslategray;
+}
+.btn:hover{
+  background-color: darkslategray !important;
+  border-color: white;
+}
+
