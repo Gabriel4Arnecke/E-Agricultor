@@ -36,12 +36,12 @@ body::-webkit-scrollbar-thumb
   padding-left: 2%;
 }
 
-.btn{
+.btn-nav{
   padding-left: 2%;
   color: darkslategray !important;
   border-color: darkslategray;
 }
-.btn:hover{
+.btn-nav:hover{
   background-color: darkslategray !important;
   border-color: darkslategray;
 }
@@ -52,5 +52,9 @@ body::-webkit-scrollbar-thumb
   border-radius: 20px;
   text-align: center;
   margin: 5% 0 0 3%;
+}
+
+.contain-main{
+  box-shadow: 5px 5px 5px black;;
 }
 
