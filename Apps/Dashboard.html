@@ -16,8 +16,15 @@
         }
         .main_content{
           top: 0;
-          margin: 0 0 0 26%;
           background-color: #212529;
+        }
+        .adjust-arrow{
+          position: absolute;
+          margin: 3.5% 0 0 80%;
+        }
+        .adjust-arrow:hover{
+          cursor: pointer;
+          color: darkslategray;
         }
     </style>
     <script src="../js/show_content.js"></script>
@@ -29,22 +36,30 @@
 
     <!-- Side Nav Bar -->
     <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px; position: fixed ;" id="side_bar">
-        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+        <a  href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
           <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
-          <span class="fs-4">E-Agricultor</span>
+          <span class="fs-4" id="logo_info">E-Agricultor</span>
         </a>
+        <svg xmlns="http://www.w3.org/2000/svg" id="more" onclick="more()" style="display: none;" width="25" height="25" fill="currentColor" class="adjust-arrow bi bi-caret-right-square" viewBox="0 0 16 16">
+          <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+          <path d="M5.795 12.456A.5.5 0 0 1 5.5 12V4a.5.5 0 0 1 .832-.374l4.5 4a.5.5 0 0 1 0 .748l-4.5 4a.5.5 0 0 1-.537.082z"/>
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" id="less" onclick="less()" width="25" height="25" fill="currentColor" class="adjust-arrow bi bi-caret-left-square" viewBox="0 0 16 16">
+          <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+          <path d="M10.205 12.456A.5.5 0 0 0 10.5 12V4a.5.5 0 0 0-.832-.374l-4.5 4a.5.5 0 0 0 0 .748l4.5 4a.5.5 0 0 0 .537.082z"/>
+        </svg>
         <hr>
         <ul class="nav nav-pills flex-column mb-auto">
           <li class="nav-item">
-            <a href="#" class="nav-link active" aria-current="page">
+            <a href="#" class="nav-link active" aria-current="page" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Home">
                 <i class="bi bi-house-door"></i>
-              Home
+              <span id="home">  Home</span>
             </a>
           </li>
           <li>
-            <a href="#" class="nav-link text-white">
+            <a href="#" class="nav-link text-white" >
                 <i class="bi bi-speedometer2"></i>
-              Dashboard
+              <span id="dash">Dashboard</span>  
             </a>
           </li>
         </ul>
@@ -66,8 +81,15 @@
     <!-- End Side Nav Bar -->
 
     <!-- Dashboard -->
-    <main class="main_content">
-      <canvas id="lineChart" style="max-width: 500px;"></canvas>
+    <main class="main_content" id="main">
+      <div class="container">
+        <div class="row">
+          First Item para API
+        </div>
+        <div class="row">
+          Aplicaçã de algum charts, 
+        </div>
+      </div>
     </main>
     <!-- End Dashboard-->
 
@@ -81,52 +103,50 @@
     </footer>
     <!-- End Footer -->
     <script>
-      window.addEventListener("load", function(event) {
+      const side_nav = document.getElementById('side_bar')
+      const main_content = document.getElementById('main')
+      const height_windows = window.innerHeight;
+      const height_footer = document.getElementById('footer').clientHeight;
+
+      window.addEventListener("load", function(event) { // Steps para o inicio da página
 
         // Consertando tamanho da side bar com relação ao tamanha da tela de cada despositivo
-        const height_windows = window.innerHeight;
-        let height_footer = document.getElementById('footer').clientHeight;
-        let height_side_nav = document.getElementById('side_bar')
         console.log(height_windows - height_footer);
-        height_side_nav.style.height = height_windows - height_footer + "px";
+        side_nav.style.height = height_windows - height_footer + "px";
+
+        // Adjust Width for content main
+        main_content.style.marginLeft = 100 - ((window.innerWidth - side_nav.clientWidth) * 100/ window.innerWidth) + "%"
       });
 
-        // Config charts temp
-        //line
-        var ctxL = document.getElementById("lineChart").getContext('2d');
-        var myLineChart = new Chart(ctxL, {
-          type: 'line',
-          data: {
-            labels: ["January", "February", "March", "April", "May", "June", "July"],
-            datasets: [{
-              label: "My First dataset",
-              data: [65, 59, 80, 81, 56, 55, 40],
-              backgroundColor: [
-                'rgba(105, 0, 132, .2)',
-              ],
-              borderColor: [
-                'rgba(200, 99, 132, .7)',
-              ],
-              borderWidth: 2
-            },
-            {
-              label: "My Second dataset",
-              data: [28, 48, 40, 19, 86, 27, 90],
-              backgroundColor: [
-                'rgba(0, 137, 132, .2)',
-              ],
-              borderColor: [
-                'rgba(0, 10, 130, .7)',
-              ],
-              borderWidth: 2
-            }
-            ]
-          },
-          options: {
-            responsive: true
-          }
-        });
+      // Arrow to do hide/show side bar
+      const span_home = document.getElementById('home')
+      const span_dash = document.getElementById('dash')
+      const arrow_less = document.getElementById('less')
+      const arrow_more = document.getElementById('more')
+      const logo_info = document.getElementById('logo_info')
+      const fixed_size_side = (side_nav.clientWidth * 100/ window.innerWidth) 
 
+      function less(){
+        // Controle de visores
+        span_dash.style.display = 'none'
+        span_home.style.display = 'none'
+        arrow_more.style.display = 'block'
+        arrow_less.style.display = 'none'        
+        logo_info.style.display = 'none'
+        // Ajuste do Width side bar
+        side_nav.style.width = '10%'
+      }
+      function more(){
+        // Controle de visores
+        span_dash.style.display = 'inline'
+        span_home.style.display = 'inline'
+        arrow_more.style.display = 'none'
+        arrow_less.style.display = 'block'
+        // Ajuste do Width side bar
+        side_nav.style.width = fixed_size_side + '%'
+        arrow_more.style.marginLeft = '50%'
+        
+      }
     </script>
 </body>
 </html>
