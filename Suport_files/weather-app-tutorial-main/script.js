@@ -31,7 +31,7 @@ let weather = {
     document.querySelector(".wind").innerText =
       "Wind speed: " + speed + " km/h";
     document.querySelector(".weather").classList.remove("loading");
-    document.getElementById('main').style.backgroundImage =
+    document.getElementById('weather_content').style.backgroundImage =
       "url('https://source.unsplash.com/1600x900/?" + name + "')";
   },
   search: function () {
@@ -51,4 +51,4 @@ document
     }
   });
 
-weather.fetchWeather("Denver");
+weather.fetchWeather("Araraquara");

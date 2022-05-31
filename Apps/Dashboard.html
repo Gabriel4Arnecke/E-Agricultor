@@ -28,7 +28,7 @@
         }
         .adjust-arrow{
           position: absolute;
-          margin: 3.5% 0 0 80%;
+          margin: -6% 0 0 80%;
         }
         .adjust-arrow:hover{
           cursor: pointer;
@@ -45,7 +45,7 @@
     <!-- Side Nav Bar -->
     <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px; position: fixed ;" id="side_bar">
         <a  href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-          <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+          <img src="../Static/img/Logo.png" alt="" srcset="" width="80px" style="margin-left: -11%;">
           <span class="fs-4" id="logo_info"><button type="button" class="btn btn-nav btn-outline-primary">E-Agricultor</button></span>
         </a>
         <svg xmlns="http://www.w3.org/2000/svg" id="more" onclick="more()" style="display: none;" width="25" height="25" fill="currentColor" class="adjust-arrow bi bi-caret-right-square" viewBox="0 0 16 16">
@@ -93,7 +93,7 @@
     <!-- Dashboard -->
     <main class="main_content" id="main">
       <div class="container">
-        <div class="row">
+        <div class="row" id="weather_content">
           <!-- Example weather API -->
           <div class="card">
             <div class="search">
