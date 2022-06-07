@@ -1,0 +1,25 @@
+.page-footer{
+    background-color: #212529;
+    color: #ffffff;
+    position: fixed ;
+    bottom: 0;
+    width: 100%;
+    text-align: center  !important;
+}
+.main_content{
+  top: 0;
+  background-color: #f3ffed;
+  padding: 2% 0 0 0;
+}
+.adjust-arrow{
+  position: absolute;
+  margin: 0 0 0 80%;
+  top: 0;
+}
+.adjust-arrow:hover{
+  cursor: pointer;
+  color: #2f4f4f;
+}
+.api_content{
+  border-radius: 31px;
+}
