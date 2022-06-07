@@ -8,33 +8,12 @@
     <!-- Import other files for run example Weather API -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../Suport_files/weather-app-tutorial-main/style.css">
-    <script src="../Suport_files/weather-app-tutorial-main/script.js" defer></script>
+    <link rel="stylesheet" href="../Css/API_style.css">
+    <script src="../Js/API_script.js" defer></script>
     <!-- End Example -->
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <style>
-        .page-footer{
-            background-color: #212529;
-            color: #ffffff;
-            position: fixed ;
-            bottom: 0;
-            width: 100%;
-            text-align: center  !important;
-        }
-        .main_content{
-          top: 0;
-          background-color: #212529;
-        }
-        .adjust-arrow{
-          position: absolute;
-          margin: -6% 0 0 80%;
-        }
-        .adjust-arrow:hover{
-          cursor: pointer;
-          color: darkslategray;
-        }
-    </style>
+    <link rel="stylesheet" href="../Css/Dashboard.css">
     <script src="../js/show_content.js"></script>
     <link rel="stylesheet" href="../css/scroll_bar.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
@@ -45,7 +24,7 @@
     <!-- Side Nav Bar -->
     <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px; position: fixed ;" id="side_bar">
         <a  href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-          <img src="../Static/img/Logo.png" alt="" srcset="" width="80px" style="margin-left: -11%;">
+          <img src="../Static/img/Logo.png" alt="" srcset="" width="80px" style="margin-left: -17%;">
           <span class="fs-4" id="logo_info"><button type="button" class="btn btn-nav btn-outline-primary">E-Agricultor</button></span>
         </a>
         <svg xmlns="http://www.w3.org/2000/svg" id="more" onclick="more()" style="display: none;" width="25" height="25" fill="currentColor" class="adjust-arrow bi bi-caret-right-square" viewBox="0 0 16 16">
@@ -57,13 +36,13 @@
         <hr>
         <ul class="nav nav-pills flex-column mb-auto">
           <li class="nav-item">
-            <a href="#" class="nav-link active" aria-current="page" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Home">
+            <a href="../Index.html" class="nav-link " aria-current="page" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Home">
                 <i class="bi bi-house-door"></i>
               <span id="home">  Home</span>
             </a>
           </li>
           <li>
-            <a href="#" class="nav-link text-white" >
+            <a href="#" class="nav-link text-white active" >
                 <i class="bi bi-speedometer2"></i>
               <span id="dash">Dashboard</span>  
             </a>
@@ -93,7 +72,7 @@
     <!-- Dashboard -->
     <main class="main_content" id="main">
       <div class="container">
-        <div class="row" id="weather_content">
+        <div class="row api_content" id="weather_content">
           <!-- Example weather API -->
           <div class="card">
             <div class="search">
@@ -112,14 +91,14 @@
                 <img src="https://openweathermap.org/img/wn/04n.png" alt="" class="icon" />
                 <div class="description">Cloudy</div>
               </div>
-              <div class="humidity">Humidity: 60%</div>
-              <div class="wind">Wind speed: 6.2 km/h</div>
+              <div class="humidity">umidade do ar: 60%</div>
+              <div class="wind">Velocidade do vento: 6.2 km/h</div>
             </div>
           </div>
           <!-- End Example -->
         </div>
-        <div class="row">
-          Aplicaçã de algum charts, 
+        <div class="row ">
+          <canvas class="line-chart"></canvas>
         </div>
       </div>
     </main>
@@ -134,56 +113,28 @@
         </div>
     </footer>
     <!-- End Footer -->
+    <script src="../Js/Dashboard.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js" integrity="sha512-sW/w8s4RWTdFFSduOTGtk4isV1+190E/GghVffMA9XczdJ2MDzSzLEubKAs5h0wzgSJOQTRYyaz73L3d6RtJSg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <!-- Construindo Gráfico  -->
     <script>
-      const side_nav = document.getElementById('side_bar')
-      const main_content = document.getElementById('main')
-      const height_windows = window.innerHeight;
-      const height_footer = document.getElementById('footer').clientHeight;
+      var ctx = document.getElementsByClassName("line-chart")
 
-      window.addEventListener("load", function(event) { // Steps para o inicio da página
-
-        // Consertando tamanho da side bar com relação ao tamanha da tela de cada despositivo
-        console.log(height_windows - height_footer);
-        side_nav.style.height = height_windows - height_footer + "px";
-
-        // Adjust Width for content main
-        main_content.style.marginLeft = 100 - ((window.innerWidth - side_nav.clientWidth) * 100/ window.innerWidth) + "%"
-      });
-
-      // Arrow to do hide/show side bar
-      const span_home = document.getElementById('home')
-      const span_dash = document.getElementById('dash')
-      const arrow_less = document.getElementById('less')
-      const arrow_more = document.getElementById('more')
-      const logo_info = document.getElementById('logo_info')
-      const name_user_info = document.getElementById('name_user_info')
-      const fixed_size_side = (side_nav.clientWidth * 100/ window.innerWidth) 
-
-      function less(){
-        // Controle de visores
-        span_dash.style.display = 'none'
-        span_home.style.display = 'none'
-        arrow_more.style.display = 'block'
-        arrow_less.style.display = 'none'        
-        logo_info.style.display = 'none'
-        name_user_info.style.display = 'none'
-        // Ajuste do Width side bar
-        side_nav.style.width = (fixed_size_side * 0.25) + '%'
-        arrow_more.style.marginLeft = '50%'
-        main_content.style.marginLeft = 100 - ((window.innerWidth - side_nav.clientWidth) * 100/ window.innerWidth) + "%"
-      }
-      function more(){
-        // Controle de visores
-        span_dash.style.display = 'inline'
-        span_home.style.display = 'inline'
-        arrow_more.style.display = 'none'
-        arrow_less.style.display = 'block'
-        logo_info.style.display = 'block'
-        name_user_info.style.display = 'block'
-        // Ajuste do Width side bar
-        side_nav.style.width = fixed_size_side + '%'
-        main_content.style.marginLeft = 100 - ((window.innerWidth - side_nav.clientWidth) * 100/ window.innerWidth) + "%"        
-      }
+      // Type, Data e options
+      var chartGraph = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: ['HH:MM:SS', 'HH:MM:SS', 'HH:MM:SS', 'HH:MM:SS', 'HH:MM:SS', 'HH:MM:SS', 'HH:MM:SS','HH:MM:SS', 'HH:MM:SS', 'HH:MM:SS', 'HH:MM:SS', 'HH:MM:SS'],
+          datasets: [{
+            label: "Temperatura sensoriada",
+            data: [16, 18, 22, 25, 25, 24, 21, 20, 22, 20, 19, 18],
+            borderWidth: 6,
+            borderColor: '#0bff24',
+            backgroundColor: 'transparent',
+          }]
+        }          
+      })
     </script>
 </body>
 </html>
