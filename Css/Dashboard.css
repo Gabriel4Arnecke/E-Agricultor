@@ -8,7 +8,7 @@
 }
 .main_content{
   top: 0;
-  background-color: #f3ffed;
+  background-color: #adc0ff70;
   padding: 2% 0 0 0;
 }
 .adjust-arrow{
@@ -22,4 +22,12 @@
 }
 .api_content{
   border-radius: 31px;
+  margin-bottom: 3%;
+}
+.container{
+  padding-bottom: 15%;
+}
+canvas{
+  border-radius: 31px;
+  background-color: #212529;
 }
