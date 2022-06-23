@@ -33,16 +33,17 @@
         </div>
         <div class="right_login"></div>
         <div class="card_login">
-            <div class="textfield">
-                <label for="user">Usuário</label>
-                <input type="text" name="user" placeholder="Usuário">
-            </div>
-            <div class="textfield">
-                <label for="password">Senha</label>
-                <input type="password" name="password" placeholder="Senha">
-            </div>
-            <button class="btn_login">Entre</button>
-
+            <form action="{{ url_for('login')}}"  method="post">
+                <div class="textfield" >
+                    <label for="user">Usuário</label>
+                    <input type="text" name="nuser" placeholder="Usuário">
+                </div>
+                <div class="textfield">
+                    <label for="keyword">Senha</label>
+                    <input type="password" name="key" placeholder="Senha">
+                </div>
+                <button class="btn_login" type="submit">Entre</button>
+            </form>
         </div>
 
         <!-- Footer -->
