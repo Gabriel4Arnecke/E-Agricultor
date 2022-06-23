@@ -31,3 +31,9 @@ canvas{
   border-radius: 31px;
   background-color: #212529;
 }
+
+#teste {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
