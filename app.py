@@ -21,7 +21,7 @@ cep = 99999999
 @app.route('/')
 def index():
     return render_template("index.html")
-
+'''
 @app.route('/login', methods =["GET", "POST"])
 def login():
     if request.method == "POST":
@@ -38,7 +38,7 @@ def dashboard():
     return render_template("dashboard.html", name_user_html=name_user)
 
 
-'''
+''''''
 CREATE TABLE "peaples" (
 	"name"	text NOT NULL,
 	"password"	integer NOT NULL,
@@ -47,8 +47,10 @@ CREATE TABLE "peaples" (
 	"Id"	INTEGER NOT NULL,
 	PRIMARY KEY("Id" AUTOINCREMENT)
 );
-'''
+
             
     #cur.execute("INSERT INTO peaples(name,password,email,cep) VALUES(?,?,?,?)", (name_user, password, email, cep))
     #connection.commit()
     #connection.close()
+
+    '''
