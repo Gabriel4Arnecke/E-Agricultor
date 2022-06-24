@@ -5,7 +5,7 @@ import os
 from tkinter import INSERT
 from flask import Flask, request, render_template, redirect
 
-debug = true
+#debug = true
 
 app = Flask(__name__)
 #app.config['SECRET_KEY'] = os.urandom(24).hex
@@ -29,6 +29,8 @@ def login():
         keyword = request.form.get("key")
         if (user == name_user) and (int(keyword) == password):
             return redirect('/dashboard')
+        else:
+            return "<h1>Login Error Value</h1>"
     return render_template("login.html")
 
 @app.route('/dashboard')
