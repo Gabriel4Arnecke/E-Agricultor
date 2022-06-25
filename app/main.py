@@ -7,7 +7,7 @@
 #def home_view():
 #    return "<h1>Finalmente heroku funcionou!!!</h1>"
 
-from flask import Flask, request, render_template, redirect, url_for
+from flask import Flask, request, Blueprint, render_template, url_for, redirect
 from ast import And
 from distutils.log import debug
 import sqlite3
@@ -17,6 +17,7 @@ import os
 #debug = true
 
 app = Flask(__name__)
+main = Blueprint('main', __name__)
 app=Flask(__name__,template_folder='templates')
 #app.config['SECRET_KEY'] = os.urandom(24).hex
 
@@ -28,12 +29,12 @@ password = 2005294
 email = 'undefined@Eagri.com.br'
 cep = 99999999
 
-@app.route('/')
+@main.route('/')
 def index():
     app = Flask(__name__)
     return render_template("index.html")
 
-@app.route('/login', methods =["GET", "POST"])
+@main.route('/login', methods =["GET", "POST"])
 def login():
     if request.method == "POST":
         user = request.form.get("nuser")
@@ -44,7 +45,7 @@ def login():
             return "<h1>Login Error Value</h1>"
     return render_template("login.html")
 
-@app.route('/dashboard')
+@main.route('/dashboard')
 def dashboard():
     return render_template("dashboard.html", name_user_html=name_user)
 
