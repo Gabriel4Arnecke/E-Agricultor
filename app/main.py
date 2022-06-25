@@ -7,7 +7,7 @@
 #def home_view():
 #    return "<h1>Finalmente heroku funcionou!!!</h1>"
 
-from flask import Flask, request, render_template, redirect
+from flask import Flask, request, render_template, redirect, url_for
 from ast import And
 from distutils.log import debug
 import sqlite3
