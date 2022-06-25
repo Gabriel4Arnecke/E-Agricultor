@@ -29,12 +29,12 @@ password = 2005294
 email = 'undefined@Eagri.com.br'
 cep = 99999999
 
-@main.route('/')
+@app.route('/')
 def index():
     app = Flask(__name__)
     return render_template("index.html")
 
-@main.route('/login', methods =["GET", "POST"])
+@app.route('/login', methods =["GET", "POST"])
 def login():
     if request.method == "POST":
         user = request.form.get("nuser")
@@ -45,7 +45,7 @@ def login():
             return "<h1>Login Error Value</h1>"
     return render_template("login.html")
 
-@main.route('/dashboard')
+@app.route('/dashboard')
 def dashboard():
     return render_template("dashboard.html", name_user_html=name_user)
 
