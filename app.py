@@ -2,7 +2,7 @@ from ast import And
 from distutils.log import debug
 import sqlite3
 import os
-from tkinter import INSERT
+#from tkinter import INSERT
 from flask import Flask, request, render_template, redirect
 
 #debug = true
