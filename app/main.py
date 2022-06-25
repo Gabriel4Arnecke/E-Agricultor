@@ -17,7 +17,7 @@ import os
 #debug = true
 
 app = Flask(__name__)
-app=Flask(__name__,template_folder='template')
+app=Flask(__name__,template_folder='templates')
 #app.config['SECRET_KEY'] = os.urandom(24).hex
 
 connection = sqlite3.connect('app.db', check_same_thread=False)
