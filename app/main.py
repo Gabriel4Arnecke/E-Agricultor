@@ -30,7 +30,7 @@ cep = 99999999
 @app.route('/')
 def index():
     app = Flask(__name__)
-    return render_template("index.html")
+    return render_template("app/templates/index.html")
 
 @app.route('/login', methods =["GET", "POST"])
 def login():
