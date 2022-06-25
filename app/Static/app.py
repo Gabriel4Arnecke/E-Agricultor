@@ -1,23 +1,13 @@
-
-#from flask import Flask
-#
-#app = Flask(__name__)
-#
-#@app.route("/")
-#def home_view():
-#    return "<h1>Finalmente heroku funcionou!!!</h1>"
-
-from flask import Flask, request, render_template, redirect
 from ast import And
 from distutils.log import debug
 import sqlite3
 import os
-#from tkinter import INSERT
+from flask import Flask, request, render_template, redirect
 
+#from tkinter import INSERT
 #debug = true
 
 app = Flask(__name__)
-app=Flask(__name__,template_folder='template')
 #app.config['SECRET_KEY'] = os.urandom(24).hex
 
 connection = sqlite3.connect('app.db', check_same_thread=False)
