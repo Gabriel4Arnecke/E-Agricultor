@@ -43,11 +43,11 @@ def login():
             return redirect('/dashboard')
         else:
             return "<h1>Login Error Value</h1>"
-    return render_template("Login.html")
+    return render_template("login.html")
 
 @app.route('/dashboard')
 def dashboard():
-    return render_template("Dashboard.html", name_user_html=name_user)
+    return render_template("dashboard.html", name_user_html=name_user)
 
 
 '''
