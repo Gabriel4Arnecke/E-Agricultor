@@ -4,15 +4,13 @@
 
   * Desenvolver uma plataforma que ajude o produdor rural, cumprindo as necessidades propostas pela UNIVESP.
 
-#### Orientador
-  
-  * Eduardo Palhares Junior 
+
 
 #### Teams
 
-  * BRUNO DE OLIVEIRA CAMPOS, 2013833 
-  * EDSON DONIZETTI DE MELLO FILHO,2003314
-  * GABRIEL PIRES ARNECKE, 2005294
-  * JOSÉ AUGUSTO LOPES MARTINS, 2007198
-  * PEDRO OTAVIO RODRIGUES DOS REIS, 2014202 
-  * RENAN FELIPE SILVA DE JESUS, 2005129 
+ Gabriel Pires Arnecke, RA 2005294  
+Marcos Vinicios Oliveira Costa, RA 2014331  
+Marcos Vinicius dos Reis Simão, RA 2004617  
+Paulo Rogério Fagundes, RA 2000452  
+Pedro Otavio Rodrigues Dos Reis, RA 2014202  
+Renan Felipe Silva De Jesus, RA 2005129  
