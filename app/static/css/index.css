@@ -30,7 +30,10 @@ body{
   color: #fff;
   border-radius: 20px;
   text-align: center;
-  margin: 5% 0 0 3%;
+  margin: auto;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  margin-right: 2%;
 }
 
 .contain-main{

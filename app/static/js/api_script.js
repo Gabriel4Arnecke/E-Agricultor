@@ -51,4 +51,4 @@ document
     }
   });
 
-weather.fetchWeather("Sao jose dos campos");
+weather.fetchWeather("Santa Rita do Sapucaí");
